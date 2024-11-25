@@ -1,56 +1,52 @@
 import React, { useContext } from 'react'
 import { DataContext } from '../../context/DataProvider';
-import styled from 'styled-components';
 import { IoCloseSharp } from "react-icons/io5";
+import { ButtonCloseModal, ButtonCreate, FormContainer, InputContainer, ModalContainerStyle, ModalContent } from './ModalContainerStyle';
 
 
 const ModalContainer = () => {
-    const { showModal, setShowModal } = useContext(DataContext);
+    const { showModal, setShowModal, dataUser, setDateUser } = useContext(DataContext);
 
-    const ModalContainer = styled.div` 
-        width: 100%;
-        background: #02004e7d;
-        height: -webkit-fill-available;
-        position: absolute; 
-        display: flex ;
-        align-items: center;
-        user-select: contain;
-        justify-content: center;
-    `
-
-    const ModalContent = styled.div` 
-        width: 60%;
-        min-height: 300px;
-        border-radius: 4px;
-        background: #e3e3e3;
-        position: relative;
-    `
-
-    const ButtonCloseModal = styled.button`
-        color: black; 
-        position: absolute;
-        background: unset;
-        right: -2px;
-        top: 3px;
-        border: none;
-    `
-
+    const createUser = e => {
+        e.preventDefault()
+        let newUser = {
+            id: dataUser.length + 1,
+            name: 'Matheus',
+            age: 26,
+            city: "São Paulo"
+        }
+        setDateUser(prevState => [...prevState, newUser])
+    }
 
     return (
         showModal && (
-            <ModalContainer>
+            <ModalContainerStyle>
                 <ModalContent>
                     <ButtonCloseModal onClick={(e) => setShowModal(false)}>
                         <IoCloseSharp size={20} />
-                        <FormContainer>
-                            <label>
-                                Nome:
-                                <input type='text' />
-                            </label>
-                        </FormContainer>
                     </ButtonCloseModal>
+
+                    <FormContainer>
+
+                        <InputContainer>
+                            Name: <input type='text' />
+                        </InputContainer>
+
+                        <InputContainer>
+                            Age: <input type='number' />
+                        </InputContainer>
+
+                        <InputContainer>
+                            City: <input type='text' />
+                        </InputContainer>
+
+                        <ButtonCreate onClick={(e) => createUser(e)}>
+                            Criar
+                        </ButtonCreate>
+
+                    </FormContainer>
                 </ModalContent>
-            </ModalContainer>
+            </ModalContainerStyle>
         )
     );
 }

@@ -1,14 +1,14 @@
 import { TableDivContainer } from "./TableContainer"
-import data from "../../json/dbjson.json"
 import { useContext } from "react";
 import { DataContext } from "../../context/DataProvider";
 
 
 const TableContainer = () => {
-
-    const { nameDirector, setNameDirector, setShowModal } = useContext(DataContext);
+    const { nameDirector, setNameDirector, setShowModal, dataUser } = useContext(DataContext);
 
     const nomes = ["Ana", "Carlos", "João", "Maria", "Pedro", "Luiza", "Paula", "Ricardo", "Gabriela", "Felipe"];
+
+    console.log(dataUser, 'dataUser')
 
     function changeRandomName() {
         const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
@@ -39,7 +39,7 @@ const TableContainer = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.tabela.dados.map(line => {
+                    {dataUser.map(line => {
                         return <tr key={line.id}>
                             <td>{line.id}</td>
                             <td>{line.name}</td>

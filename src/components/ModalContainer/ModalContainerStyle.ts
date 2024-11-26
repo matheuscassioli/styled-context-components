@@ -29,6 +29,11 @@ export const ButtonCloseModal = styled.button`
   right: -2px;
   top: 3px;
   border: none;
+  transition: transform 0.3s ease;  
+
+  &:hover {
+    transform: rotate(90deg);  
+  }
 `;
 
 export const FormContainer = styled.form`

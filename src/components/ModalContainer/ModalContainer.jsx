@@ -15,7 +15,19 @@ const ModalContainer = () => {
             age: 26,
             city: "São Paulo"
         }
-        setDateUser(prevState => [...prevState, newUser])
+
+
+        fetch('http://localhost/api/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newUser),
+        })
+            .then(response => response.json())
+            .then(data => {
+                setDateUser(prevState => [...prevState, data])
+            })
     }
 
     return (

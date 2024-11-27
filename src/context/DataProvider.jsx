@@ -10,7 +10,7 @@ export const DataContextProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
  
     useEffect(() => {
-        fetch('http://localhost/api/')
+        fetch('http://localhost/api/index.php')
             .then(response => response.json())
             .then(json => {
                 setDateUser(json)

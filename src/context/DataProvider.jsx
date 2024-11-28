@@ -8,7 +8,7 @@ export const DataContextProvider = ({ children }) => {
     const [nameDirector, setNameDirector] = useState("Matheus");
     const [showModal, setShowModal] = useState(false)
     const [loading, setLoading] = useState(true)
- 
+
     useEffect(() => {
         fetch('http://localhost/api/index.php')
             .then(response => response.json())

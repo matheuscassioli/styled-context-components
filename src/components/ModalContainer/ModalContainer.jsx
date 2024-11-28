@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { DataContext } from '../../context/DataProvider';
 import { IoCloseSharp } from "react-icons/io5";
-import { ButtonCloseModal, ButtonCreate, FormContainer, InputContainer, ModalContainerStyle, ModalContent } from './ModalContainerStyle';
+import { ButtonCloseModal, ButtonCreate, ButtonsContainer, FormContainer, InputContainer, ModalContainerStyle, ModalContent } from './ModalContainerStyle';
 
 
 const ModalContainer = () => {
@@ -15,7 +15,6 @@ const ModalContainer = () => {
             age: 26,
             city: "São Paulo"
         }
-
 
         fetch('http://localhost/api/', {
             method: 'POST',
@@ -52,13 +51,19 @@ const ModalContainer = () => {
                             City: <input type='text' />
                         </InputContainer>
 
-                        <ButtonCreate onClick={(e) => createUser(e)}>
-                            Criar
-                        </ButtonCreate>
+                        <ButtonsContainer>
+                            <ButtonCreate onClick={(e) => createUser(e)}>
+                                Criar
+                            </ButtonCreate>
+
+                            <ButtonCreate onClick={(e) => setShowModal(false)}>
+                                Fechar
+                            </ButtonCreate>
+                        </ButtonsContainer>
 
                     </FormContainer>
                 </ModalContent>
-            </ModalContainerStyle>
+            </ModalContainerStyle >
         )
     );
 }

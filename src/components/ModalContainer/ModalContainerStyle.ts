@@ -9,11 +9,12 @@ export const ModalContainerStyle = styled.div`
   align-items: center;
   user-select: contain;
   justify-content: center;
+
+  
 `;
 
 export const ModalContent = styled.div`
-  width: 60%;
-  min-height: 300px;
+  padding: 3rem;
   border-radius: 4px;
   background: #e3e3e3;
   position: relative;
@@ -29,10 +30,10 @@ export const ButtonCloseModal = styled.button`
   right: -2px;
   top: 3px;
   border: none;
-  transition: transform 0.3s ease;  
+  transition: transform 0.3s ease;
 
   &:hover {
-    transform: rotate(90deg);  
+    transform: rotate(90deg);
   }
 `;
 
@@ -57,5 +58,15 @@ export const InputContainer = styled.label`
 `;
 
 export const ButtonCreate = styled.button`
-  background-color: red;
+  background-color: gray;
+  padding: 6px 12px;
+  border-radius: 6px;
 `;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+

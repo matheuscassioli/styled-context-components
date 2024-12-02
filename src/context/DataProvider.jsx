@@ -25,8 +25,6 @@ export const DataContextProvider = ({ children }) => {
             })
     }, []);
 
-
-
     return (
         <DataContext.Provider value={{ nameDirector, setNameDirector, setShowModal, showModal, dataUser, setDateUser, loading }}>
             {children}

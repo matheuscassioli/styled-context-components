@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { DataContext } from '../../context/DataProvider';
 import { IoCloseSharp } from "react-icons/io5";
 import { ButtonCloseModal, ButtonCreate, ButtonsContainer, FormContainer, InputContainer, ModalContainerStyle, ModalContent } from './ModalContainerStyle';
@@ -6,28 +6,30 @@ import { ButtonCloseModal, ButtonCreate, ButtonsContainer, FormContainer, InputC
 
 const ModalContainer = () => {
     const { showModal, setShowModal, dataUser, setDateUser } = useContext(DataContext);
+    const [dataUserState, setDataUserState] = useState([{ name: '', age: '', city: '' }])
 
     const createUser = e => {
         e.preventDefault()
-        let newUser = {
-            id: dataUser.length + 1,
-            name: 'Matheus',
-            age: 26,
-            city: "São Paulo"
-        }
 
         fetch('http://localhost/api/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(newUser),
+            body: JSON.stringify(dataUserState),
         })
             .then(response => response.json())
             .then(data => {
                 setDateUser(prevState => [...prevState, data])
             })
     }
+
+    const setDataUserController = (value, field) => {
+        setDataUserState((state) => ({
+            ...state,
+            [field]: value,
+        }));
+    };
 
     return (
         showModal && (
@@ -37,22 +39,22 @@ const ModalContainer = () => {
                         <IoCloseSharp size={20} />
                     </ButtonCloseModal>
 
-                    <FormContainer>
+                    <FormContainer onSubmit={(e) => createUser(e)}>
 
                         <InputContainer>
-                            Name: <input type='text' />
+                            Name: <input type='text' required onChange={(e) => setDataUserController(e.target.value, 'name')} />
                         </InputContainer>
 
                         <InputContainer>
-                            Age: <input type='number' />
+                            Age: <input type='number' required onChange={(e) => setDataUserController(e.target.value, 'age')} />
                         </InputContainer>
 
                         <InputContainer>
-                            City: <input type='text' />
+                            City: <input type='text' required onChange={(e) => setDataUserController(e.target.value, 'city')} />
                         </InputContainer>
 
                         <ButtonsContainer>
-                            <ButtonCreate onClick={(e) => createUser(e)}>
+                            <ButtonCreate type='submit'>
                                 Criar
                             </ButtonCreate>
 

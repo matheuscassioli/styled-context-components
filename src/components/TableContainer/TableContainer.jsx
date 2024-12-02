@@ -29,6 +29,11 @@ const TableContainer = () => {
         </tr>
     }
 
+    function capitalizeFirstLetter(str) {
+        if (!str) return ''; // Verifica se a string está vazia
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
     return (
         <TableDivContainer>
 
@@ -48,6 +53,7 @@ const TableContainer = () => {
             <HugTableContainer>
 
                 {loading && <h1>Loading....</h1>}
+
                 {!loading && <table border="1" style={{ width: "100%", borderCollapse: "collapse" }}>
                     <thead>
                         {returnHeaders()}
@@ -56,9 +62,9 @@ const TableContainer = () => {
                         {dataUser.map(line => {
                             return <tr key={line.id}>
                                 <td>{line.id}</td>
-                                <td>{line.name}</td>
+                                <td>{capitalizeFirstLetter(line.name)}</td>
                                 <td>{line.age}</td>
-                                <td>{line.city}</td>
+                                <td>{capitalizeFirstLetter(line.city)}</td>
                             </tr>
                         })}
                     </tbody>

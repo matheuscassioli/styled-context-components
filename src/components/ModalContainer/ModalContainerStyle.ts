@@ -2,12 +2,11 @@ import styled from "styled-components";
 
 export const ModalContainerStyle = styled.div`
   width: 100%;
-  background: #02004e7d;
+  background: #000000bf;
   height: -webkit-fill-available;
   position: absolute;
   display: flex;
-  align-items: center;
-  user-select: contain;
+  align-items: center; 
   justify-content: center;
 `;
 

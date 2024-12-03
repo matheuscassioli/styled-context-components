@@ -9,11 +9,11 @@ const SubTableContainer = styled.div`
 `
 
 const SubTable = () => {
-    const { setShowModal } = useContext(DataContext);
+    const { setShowModal, loading } = useContext(DataContext);
 
     return (
         <SubTableContainer>
-            <button title="Criar novo usuário" onClick={(e) => setShowModal(true)}>
+            <button disabled={loading} title="Criar novo usuário" onClick={(e) => setShowModal(true)}>
                 <FaPlus />
             </button>
         </SubTableContainer>

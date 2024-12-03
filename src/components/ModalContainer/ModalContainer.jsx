@@ -5,7 +5,7 @@ import { ButtonCloseModal, ButtonCreate, ButtonsContainer, FormContainer, InputC
 
 
 const ModalContainer = () => {
-    const { showModal, setShowModal, dataUser, setDateUser, setLoading } = useContext(DataContext);
+    const { showModal, setShowModal, setDateUser, setLoading } = useContext(DataContext);
     const [dataUserState, setDataUserState] = useState([{ name: '', age: '', city: '' }])
 
     const createUser = e => {
@@ -40,7 +40,7 @@ const ModalContainer = () => {
 
     return (
         showModal && (
-            <ModalContainerStyle>
+            <ModalContainerStyle   >
                 <ModalContent>
                     <ButtonCloseModal onClick={(e) => setShowModal(false)}>
                         <IoCloseSharp size={20} />

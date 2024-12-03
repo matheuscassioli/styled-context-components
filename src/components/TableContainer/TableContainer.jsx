@@ -1,10 +1,10 @@
-import { TableDivContainer } from "./TableContainer"
+import { TableDivContainer, TrashContainer } from "./TableContainer"
 import { useContext } from "react";
 import { DataContext } from "../../context/DataProvider";
 import styled from "styled-components";
 import SubTable from "../SubTable/SubTable";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
-
+import { FaRegTrashAlt } from "react-icons/fa";
 
 const HugTableContainer = styled.div.withConfig({
     shouldForwardProp: (prop) => prop !== 'loading',
@@ -35,8 +35,14 @@ const TableContainer = () => {
         </tr>
     }
 
-    function capitalizeFirstLetter(str) {
+    const capitalizeFirstLetter = (str) => {
         return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    const renderTrashIcon = user => {
+        return <TrashContainer onClick={(e) => window.alert(`Tem certeza que deseja deletar o usuário ${user.name}?`)}>
+            <FaRegTrashAlt />
+        </TrashContainer>
     }
 
     return (
@@ -54,7 +60,6 @@ const TableContainer = () => {
 
             <p>CRUD BÁSICO + CONTEXTOS ENTRE COMPONENTES</p>
 
-
             <HugTableContainer loading={loading}>
 
                 {loading && <LoadingSpinner />}
@@ -70,6 +75,7 @@ const TableContainer = () => {
                                 <td>{capitalizeFirstLetter(line.name)}</td>
                                 <td>{line.age}</td>
                                 <td>{capitalizeFirstLetter(line.city)}</td>
+                                <td>{renderTrashIcon(line)}</td>
                             </tr>
                         })}
                     </tbody>

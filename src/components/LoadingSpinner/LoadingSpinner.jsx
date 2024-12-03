@@ -7,7 +7,7 @@ const LoadingSpinner = () => {
             type={'spokes'}
             color={'white'}
             height={'unset'}
-            width={'15%'} 
+            width={'10%'}
         />
     )
 }

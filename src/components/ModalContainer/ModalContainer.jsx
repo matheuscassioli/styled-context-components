@@ -5,11 +5,13 @@ import { ButtonCloseModal, ButtonCreate, ButtonsContainer, FormContainer, InputC
 
 
 const ModalContainer = () => {
-    const { showModal, setShowModal, dataUser, setDateUser } = useContext(DataContext);
+    const { showModal, setShowModal, dataUser, setDateUser, setLoading } = useContext(DataContext);
     const [dataUserState, setDataUserState] = useState([{ name: '', age: '', city: '' }])
 
     const createUser = e => {
         e.preventDefault()
+        setLoading(true)
+        setShowModal(false)
 
         fetch('http://localhost/api/', {
             method: 'POST',
@@ -21,6 +23,11 @@ const ModalContainer = () => {
             .then(response => response.json())
             .then(data => {
                 setDateUser(prevState => [...prevState, data])
+            })
+            .finally(() => {
+                setTimeout(() => {
+                    setLoading(false)
+                }, 2000)
             })
     }
 
@@ -39,7 +46,7 @@ const ModalContainer = () => {
                         <IoCloseSharp size={20} />
                     </ButtonCloseModal>
 
-                    <FormContainer onSubmit={(e) => createUser(e)}>
+                    <FormContainer onSubmit={createUser}>
 
                         <InputContainer>
                             Name: <input type='text' required onChange={(e) => setDataUserController(e.target.value, 'name')} />

@@ -3,12 +3,18 @@ import { useContext } from "react";
 import { DataContext } from "../../context/DataProvider";
 import styled from "styled-components";
 import SubTable from "../SubTable/SubTable";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 
-const HugTableContainer = styled.div` 
-    max-height: 300px;
+const HugTableContainer = styled.div.withConfig({
+    shouldForwardProp: (prop) => prop !== 'loading',
+})`
+    height: 300px;
     overflow: auto; 
-`
+    display: flex;
+    justify-content: center;
+    align-items: ${(props) => (props.loading ? 'center' : 'flex-start')};
+  `;
 
 const TableContainer = () => {
     const { nameDirector, setNameDirector, dataUser, loading } = useContext(DataContext);
@@ -30,7 +36,6 @@ const TableContainer = () => {
     }
 
     function capitalizeFirstLetter(str) {
-        if (!str) return ''; // Verifica se a string está vazia
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
@@ -50,9 +55,9 @@ const TableContainer = () => {
             <p>CRUD BÁSICO + CONTEXTOS ENTRE COMPONENTES</p>
 
 
-            <HugTableContainer>
+            <HugTableContainer loading={loading}>
 
-                {loading && <h1>Loading....</h1>}
+                {loading && <LoadingSpinner />}
 
                 {!loading && <table border="1" style={{ width: "100%", borderCollapse: "collapse" }}>
                     <thead>

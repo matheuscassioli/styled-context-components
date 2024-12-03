@@ -9,12 +9,10 @@ export const ModalContainerStyle = styled.div`
   align-items: center;
   user-select: contain;
   justify-content: center;
-
-  
 `;
 
 export const ModalContent = styled.div`
-  padding: 3rem;
+  padding: 2.5rem 2.5rem 1.5rem 2.5rem;
   border-radius: 4px;
   background: #e3e3e3;
   position: relative;
@@ -38,22 +36,24 @@ export const ButtonCloseModal = styled.button`
 `;
 
 export const FormContainer = styled.form`
-  gap: 1rem;
+  gap: 1.5rem;
   color: black;
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
 `;
 export const InputContainer = styled.label`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 2rem;
+  justify-content: space-between;
 
   input {
     background-color: transparent;
     border-radius: 4px;
     color: black;
+    border: solid gray 1px;
+    height: 20px;
   }
 `;
 
@@ -61,6 +61,7 @@ export const ButtonCreate = styled.button`
   background-color: gray;
   padding: 6px 12px;
   border-radius: 6px;
+  font-size: 0.9rem;
 `;
 
 export const ButtonsContainer = styled.div`
@@ -68,5 +69,3 @@ export const ButtonsContainer = styled.div`
   justify-content: space-between;
   width: 100%;
 `;
-
-

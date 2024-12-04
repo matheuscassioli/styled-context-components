@@ -1,4 +1,4 @@
-import { TableDivContainer, TrashContainer } from "./TableContainer"
+import { TableContainerStyle, TableDivContainer, TrashContainer } from "./TableContainer"
 import { useContext } from "react";
 import { DataContext } from "../../context/DataProvider";
 import styled from "styled-components";
@@ -64,7 +64,7 @@ const TableContainer = () => {
 
                 {loading && <LoadingSpinner />}
 
-                {!loading && <table border="1" style={{ width: "100%", borderCollapse: "collapse" }}>
+                {!loading && <TableContainerStyle>
                     <thead>
                         {returnHeaders()}
                     </thead>
@@ -79,7 +79,7 @@ const TableContainer = () => {
                             </tr>
                         })}
                     </tbody>
-                </table>}
+                </TableContainerStyle>}
             </HugTableContainer>
         </TableDivContainer>
     )

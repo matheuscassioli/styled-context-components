@@ -23,6 +23,18 @@ export const TrashContainer = styled.span`
   }
 `;
 
+export const EditContainerUser = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.4s ease;
+  cursor: pointer;
+
+  &:hover {
+    color: blue;
+  }
+`;
+
 interface HugTableContainerProps {
   loading?: boolean;
 }

@@ -1,11 +1,10 @@
-import { HugTableContainer, TableContainerStyle, TableDivContainer, TrashContainer } from "./TableContainer"
+import { EditContainerUser, HugTableContainer, TableContainerStyle, TableDivContainer, TrashContainer } from "./TableContainer"
 import { useContext } from "react";
 import { DataContext } from "../../context/DataProvider";
-import styled from "styled-components";
 import SubTable from "../SubTable/SubTable";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { FaRegTrashAlt } from "react-icons/fa";
-
+import { TbUserEdit } from "react-icons/tb";
 
 const TableContainer = () => {
     const { nameDirector, setNameDirector, dataUser, loading } = useContext(DataContext);
@@ -36,6 +35,15 @@ const TableContainer = () => {
             <FaRegTrashAlt />
         </TrashContainer>
     }
+
+    const renderEditIcon = user => {
+        return <EditContainerUser
+            onClick={(e) => window.alert(`Tem certeza que editar deletar o usuário ${user.name}?`)}>
+            <TbUserEdit />
+        </EditContainerUser>
+    }
+
+
 
     return (
         <TableDivContainer>
@@ -68,6 +76,7 @@ const TableContainer = () => {
                                 <td>{line.age}</td>
                                 <td>{capitalizeFirstLetter(line.city)}</td>
                                 <td>{renderTrashIcon(line)}</td>
+                                <td>{renderEditIcon(line)}</td>
                             </tr>
                         })}
                     </tbody>

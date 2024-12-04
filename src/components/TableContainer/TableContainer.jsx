@@ -1,4 +1,4 @@
-import { TableContainerStyle, TableDivContainer, TrashContainer } from "./TableContainer"
+import { HugTableContainer, TableContainerStyle, TableDivContainer, TrashContainer } from "./TableContainer"
 import { useContext } from "react";
 import { DataContext } from "../../context/DataProvider";
 import styled from "styled-components";
@@ -6,15 +6,6 @@ import SubTable from "../SubTable/SubTable";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { FaRegTrashAlt } from "react-icons/fa";
 
-const HugTableContainer = styled.div.withConfig({
-    shouldForwardProp: (prop) => prop !== 'loading',
-})`
-    height: 300px;
-    overflow: auto; 
-    display: flex;
-    justify-content: center;
-    align-items: ${(props) => (props.loading ? 'center' : 'flex-start')};
-  `;
 
 const TableContainer = () => {
     const { nameDirector, setNameDirector, dataUser, loading } = useContext(DataContext);
@@ -40,7 +31,8 @@ const TableContainer = () => {
     }
 
     const renderTrashIcon = user => {
-        return <TrashContainer onClick={(e) => window.alert(`Tem certeza que deseja deletar o usuário ${user.name}?`)}>
+        return <TrashContainer
+            onClick={(e) => window.alert(`Tem certeza que deseja deletar o usuário ${user.name}?`)}>
             <FaRegTrashAlt />
         </TrashContainer>
     }

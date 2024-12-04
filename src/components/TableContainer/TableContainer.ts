@@ -22,3 +22,17 @@ export const TrashContainer = styled.span`
     color: #dd3838;
   }
 `;
+
+interface HugTableContainerProps {
+  loading?: boolean;
+}
+
+export const HugTableContainer = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== "loading",
+})<HugTableContainerProps>`
+  height: 300px;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: ${(props) => (props.loading ? "center" : "flex-start")};
+`;

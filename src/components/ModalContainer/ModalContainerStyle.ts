@@ -6,8 +6,9 @@ export const ModalContainerStyle = styled.div`
   height: -webkit-fill-available;
   position: absolute;
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
+  color: black;
 `;
 
 export const ModalContent = styled.div`
@@ -18,6 +19,7 @@ export const ModalContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 `;
 
 export const ButtonCloseModal = styled.button`

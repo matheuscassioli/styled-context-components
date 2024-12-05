@@ -31,7 +31,7 @@ export const EditContainerUser = styled.span`
   cursor: pointer;
 
   &:hover {
-    color: blue;
+    color: #1700ff87;
   }
 `;
 

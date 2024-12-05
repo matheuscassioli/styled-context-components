@@ -4,10 +4,14 @@ import { DataContext } from "../../context/DataProvider";
 import SubTable from "../SubTable/SubTable";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { TbUserEdit } from "react-icons/tb";
+import { FaUserEdit } from "react-icons/fa";
+import { ModalDeleteUserContext } from "../../context/ModalDeleteUser";
+import { ModalUpdateUserContext } from "../../context/ModalUpdateUser";
 
 const TableContainer = () => {
     const { nameDirector, setNameDirector, dataUser, loading } = useContext(DataContext);
+    const { deleteUser } = useContext(ModalDeleteUserContext)
+    const { updateUser } = useContext(ModalUpdateUserContext)
 
     const names = ["Ana", "Carlos", "João", "Maria", "Pedro", "Luiza", "Paula", "Ricardo", "Gabriela", "Felipe"];
 
@@ -31,15 +35,15 @@ const TableContainer = () => {
 
     const renderTrashIcon = user => {
         return <TrashContainer
-            onClick={(e) => window.alert(`Tem certeza que deseja deletar o usuário ${user.name}?`)}>
+            onClick={() => deleteUser(true, user)}>
             <FaRegTrashAlt />
         </TrashContainer>
     }
 
     const renderEditIcon = user => {
         return <EditContainerUser
-            onClick={(e) => window.alert(`Tem certeza que editar deletar o usuário ${user.name}?`)}>
-            <TbUserEdit />
+            onClick={(e) => updateUser(true, user)}>
+            <FaUserEdit />
         </EditContainerUser>
     }
 

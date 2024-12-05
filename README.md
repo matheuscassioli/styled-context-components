@@ -2,7 +2,7 @@
  
 Este projeto foi criado com o objetivo de consolidar meus aprendizados sobre **Contextos no React**, além de me familiarizar ainda mais com o uso de **Styled Components**. Durante o desenvolvimento, decidi expandir meus conhecimentos e, ao invés de apenas trabalhar no front-end, me aventurei na criação de uma **API com XAMPP** para implementar um CRUD básico, conectando o front-end e o back-end.
 
-Senti a necessidade de reforçar esse conteúdo, pois nos desafios profissionais que tenho enfrentado, algo que me incomodava muito era o uso exacerbado de propriedades entre componentes, o famoso **prop-drilling**. Com isso, consegui deixar meus códigos mais profissionais, organizados, limpos e, o mais importante, **fáceis de manutenção/escalabilidade**.
+Senti a necessidade de reforçar esse conteúdo, pois nos desafios profissionais que tenho enfrentado, algo que me incomodava muito era o uso exacerbado de propriedades entre componentes, o famoso **prop-drilling**. Com isso, consegui deixar meus códigos mais profissional, organizado, limpo e, o mais importante, **fácil de manutenção/escalabilidade**.
 
 ---
 

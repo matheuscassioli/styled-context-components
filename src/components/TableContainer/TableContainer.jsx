@@ -23,9 +23,11 @@ const TableContainer = () => {
     const returnHeaders = () => {
         return <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>City</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Estado</th>
+            <th>País</th>
+            <th>Ações</th>
         </tr>
     }
 
@@ -47,7 +49,9 @@ const TableContainer = () => {
         </EditContainerUser>
     }
 
-
+    const renderInputCountryDisabled = e => {
+        return <input style={{ width: '100px' }} type="text" value="Brasil" disabled />
+    }
 
     return (
         <TableDivContainer>
@@ -56,7 +60,6 @@ const TableContainer = () => {
 
             <button onClick={changeRandomName}>Trocar o nome através do contexto</button>
 
-            <hr />
 
             <SubTable />
 
@@ -78,7 +81,8 @@ const TableContainer = () => {
                                 <td>{line.id}</td>
                                 <td>{capitalizeFirstLetter(line.name)}</td>
                                 <td>{line.age}</td>
-                                <td>{capitalizeFirstLetter(line.city)}</td>
+                                <td>{capitalizeFirstLetter(line.state)}</td>
+                                <td>{renderInputCountryDisabled()}</td>
                                 <td>{renderTrashIcon(line)}</td>
                                 <td>{renderEditIcon(line)}</td>
                             </tr>

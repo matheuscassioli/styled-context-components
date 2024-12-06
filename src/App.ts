@@ -6,4 +6,6 @@ export const MainContainer = styled.main`
   justify-content: center;
   align-items: center;
   height: inherit;
+
+
 `;

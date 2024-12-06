@@ -42,6 +42,16 @@ export const FormContainer = styled.form`
   display: flex;
   justify-content: center;
   flex-direction: column;
+
+  select {
+    color: black;
+    background: transparent;
+    border-radius: 4px;
+    height: 24px;
+    border: solid gray 1px;
+    width: -webkit-fill-available;
+    padding: 0px;
+  }
 `;
 export const InputContainer = styled.label`
   display: flex;

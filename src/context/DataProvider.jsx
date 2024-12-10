@@ -27,8 +27,18 @@ export const DataContextProvider = ({ children }) => {
             })
     }, [resfreshTable]);
 
+    const statesList = [
+        "Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará",
+        "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão",
+        "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará",
+        "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro",
+        "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia",
+        "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins"
+    ];
+
+
     return (
-        <DataContext.Provider value={{ nameDirector, setResfreshTable, resfreshTable, setNameDirector, setShowModal, showModal, dataUser, setDateUser, loading, setLoading }}>
+        <DataContext.Provider value={{ statesList, nameDirector, setResfreshTable, resfreshTable, setNameDirector, setShowModal, showModal, dataUser, setDateUser, loading, setLoading }}>
             {children}
         </DataContext.Provider>
     );

@@ -9,7 +9,7 @@ import { ModalDeleteUserContext } from "../../context/ModalDeleteUser";
 import { ModalUpdateUserContext } from "../../context/ModalUpdateUser";
 
 const TableContainer = () => {
-    const { nameDirector, setNameDirector, dataUser, loading } = useContext(DataContext);
+    const { nameDirector, setNameDirector, dataUser, loading, resfreshTable } = useContext(DataContext);
     const { deleteUser } = useContext(ModalDeleteUserContext)
     const { updateUser } = useContext(ModalUpdateUserContext)
 
@@ -18,8 +18,8 @@ const TableContainer = () => {
     function changeRandomName() {
         const randomName = names[Math.floor(Math.random() * names.length)];
         setNameDirector(randomName);
-    }
-
+    } 
+    
     const returnHeaders = () => {
         return <tr>
             <th>Id</th>

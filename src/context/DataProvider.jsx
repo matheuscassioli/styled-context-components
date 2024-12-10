@@ -8,8 +8,10 @@ export const DataContextProvider = ({ children }) => {
     const [nameDirector, setNameDirector] = useState("Matheus");
     const [showModal, setShowModal] = useState(false)
     const [loading, setLoading] = useState(true)
+    const [resfreshTable, setResfreshTable] = useState(false)
 
     useEffect(() => {
+        setLoading(true)
         fetch('http://localhost/api/index.php')
             .then(response => response.json())
             .then(json => {
@@ -21,12 +23,12 @@ export const DataContextProvider = ({ children }) => {
             .finally(() => {
                 setTimeout(() => {
                     setLoading(false)
-                }, 3000)
+                }, 1500)
             })
-    }, []);
+    }, [resfreshTable]);
 
     return (
-        <DataContext.Provider value={{ nameDirector, setNameDirector, setShowModal, showModal, dataUser, setDateUser, loading, setLoading }}>
+        <DataContext.Provider value={{ nameDirector, setResfreshTable, resfreshTable, setNameDirector, setShowModal, showModal, dataUser, setDateUser, loading, setLoading }}>
             {children}
         </DataContext.Provider>
     );

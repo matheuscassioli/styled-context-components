@@ -1,4 +1,6 @@
-import React, { createContext, useState } from "react"; 
+import React, { createContext, useContext, useState } from "react";
+import toast from 'react-hot-toast';
+import { DataContext } from "./DataProvider";
 
 export const ModalUpdateUserContext = createContext();
 
@@ -6,6 +8,7 @@ export const ModalUpdateUserProvider = ({ children }) => {
 
     const [showModalUpdateUser, setShowModalUpdateUser] = useState(false);
     const [userForUpdate, setUserForUpdate] = useState({})
+    const { setResfreshTable } = useContext(DataContext)
 
     const updateUser = (e, isTable, user) => {
         if (isTable) {
@@ -26,8 +29,13 @@ export const ModalUpdateUserProvider = ({ children }) => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data, 'data')
-        
+                toast.success(data.message, {
+                    duration: 3000,
+                })
+                setTimeout(() => {
+                    setShowModalUpdateUser(false)
+                    setResfreshTable(Math.random())
+                }, 1000)
             })
     }
 

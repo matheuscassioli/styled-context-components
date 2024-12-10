@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { ButtonCloseModal, ButtonCreate, ButtonsContainer, FormContainer, InputContainer, ModalContainerStyle, ModalContent } from '../ModalContainer/ModalContainerStyle'
 import { IoCloseSharp } from 'react-icons/io5'
 import { ModalUpdateUserContext } from '../../context/ModalUpdateUser'
@@ -8,12 +8,24 @@ const ModalUpdateUser = () => {
     const { showModalUpdateUser, setShowModalUpdateUser, updateUser, userForUpdate } = useContext(ModalUpdateUserContext)
     const [dataUserState, setDataUserState] = useState([{ name: '', age: '', state: '' }])
 
+
+
     const setDataUserController = (value, field) => {
         setDataUserState((state) => ({
             ...state,
             [field]: value,
         }));
     };
+
+    const updateUserInModal = e => {
+        e.preventDefault()
+        let obj = {}
+        obj['id'] = userForUpdate.id
+        obj['name'] = document.querySelector('#name').value
+        obj['age'] = document.querySelector('#age').value
+        obj['state'] = document.querySelector('#state').value
+        updateUser(e, false, obj)
+    }
 
     return (
         showModalUpdateUser && <ModalContainerStyle>
@@ -29,15 +41,28 @@ const ModalUpdateUser = () => {
                 <FormContainer>
 
                     <InputContainer>
-                        Nome: <input type='text' defaultValue={userForUpdate.name} onChange={(e) => setDataUserController(e.target.value, 'name')} />
+                        Nome: <input
+                            type='text'
+                            id="name"
+                            defaultValue={userForUpdate.name}
+                            onChange={(e) => setDataUserController(e.target.value, 'name')}
+                        />
                     </InputContainer>
 
                     <InputContainer>
-                        Idade: <input type='number' defaultValue={userForUpdate.age} onChange={(e) => setDataUserController(e.target.value, 'age')} />
+                        Idade: <input
+                            type='number'
+                            id="age"
+                            defaultValue={userForUpdate.age}
+                            onChange={(e) => setDataUserController(e.target.value, 'age')}
+                        />
                     </InputContainer>
 
                     <InputContainer>
-                        Estado: <select defaultValue={userForUpdate.state} onChange={(e) => setDataUserController(e.target.value, 'state')}  >
+                        Estado: <select
+                            id="state"
+                            defaultValue={userForUpdate.state}
+                            onChange={(e) => setDataUserController(e.target.value, 'state')}  >
                             <option value="Acre">Acre</option>
                             <option value="Alagoas">Alagoas</option>
                             <option value="Amapá">Amapá</option>
@@ -69,11 +94,11 @@ const ModalUpdateUser = () => {
                     </InputContainer>
 
                     <ButtonsContainer>
-                        <ButtonCreate onClick={() => updateUser(false)}>
+                        <ButtonCreate onClick={(e) => updateUserInModal(e)}>
                             Confirmar
                         </ButtonCreate>
 
-                        <ButtonCreate onClick={() => setShowModalUpdateUser(dataUserState)} >
+                        <ButtonCreate onClick={() => setShowModalUpdateUser(false)}  >
                             Fechar
                         </ButtonCreate >
                     </ButtonsContainer>

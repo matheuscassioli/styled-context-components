@@ -44,7 +44,7 @@ const TableContainer = () => {
 
     const renderEditIcon = user => {
         return <EditContainerUser
-            onClick={(e) => updateUser(true, user)}>
+            onClick={(e) => updateUser(e, true, user)}>
             <FaUserEdit />
         </EditContainerUser>
     }

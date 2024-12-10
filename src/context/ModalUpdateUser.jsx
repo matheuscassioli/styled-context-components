@@ -7,17 +7,16 @@ export const ModalUpdateUserProvider = ({ children }) => {
     const [showModalUpdateUser, setShowModalUpdateUser] = useState(false);
     const [userForUpdate, setUserForUpdate] = useState({})
 
-    const updateUser = (isTable, user) => {
+    const updateUser = (e, isTable, user) => {
         if (isTable) {
             setShowModalUpdateUser(true)
             setUserForUpdate(user)
             return
-        } 
-        console.log()
+        }
+        updateUserApi(e, user)
     }
 
     const updateUserApi = (e, newUser) => {
-        e.preventDefault()
         console.warn('chamada para editar usuario', newUser)
     }
 

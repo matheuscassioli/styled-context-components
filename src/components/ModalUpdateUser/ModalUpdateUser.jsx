@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { ButtonCloseModal, ButtonCreate, ButtonsContainer, FormContainer, InputContainer, ModalContainerStyle, ModalContent } from '../ModalContainer/ModalContainerStyle'
 import { IoCloseSharp } from 'react-icons/io5'
 import { ModalUpdateUserContext } from '../../context/ModalUpdateUser'
@@ -7,9 +7,7 @@ const ModalUpdateUser = () => {
 
     const { showModalUpdateUser, setShowModalUpdateUser, updateUser, userForUpdate } = useContext(ModalUpdateUserContext)
     const [dataUserState, setDataUserState] = useState([{ name: '', age: '', state: '' }])
-
-
-
+ 
     const setDataUserController = (value, field) => {
         setDataUserState((state) => ({
             ...state,
@@ -28,7 +26,7 @@ const ModalUpdateUser = () => {
     }
 
     return (
-        showModalUpdateUser && <ModalContainerStyle>
+        showModalUpdateUser && <ModalContainerStyle> 
             <ModalContent>
                 <ButtonCloseModal >
                     <IoCloseSharp

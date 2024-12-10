@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState } from "react"; 
 
 export const ModalUpdateUserContext = createContext();
 
@@ -17,7 +17,18 @@ export const ModalUpdateUserProvider = ({ children }) => {
     }
 
     const updateUserApi = (e, newUser) => {
-        console.warn('chamada para editar usuario', newUser)
+        fetch('http://localhost/api/', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newUser),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data, 'data')
+        
+            })
     }
 
     return (

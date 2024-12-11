@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import toast from 'react-hot-toast';
 
 export const ModalDeleteUserContext = createContext();
 
@@ -27,12 +28,11 @@ export const ModalDeleteUserProvider = ({ children }) => {
             },
             body: JSON.stringify({ id: userForDeleted.id }),
         })
-            .then(response => {
-                console.log(response)
-                response.json()
-            })
+            .then(response => response.json())
             .then(data => {
-                console.warn(data)
+                toast.success(data.message, {
+                    duration: 3000,
+                })
             })
     }
 

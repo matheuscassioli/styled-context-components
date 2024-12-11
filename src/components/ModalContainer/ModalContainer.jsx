@@ -18,7 +18,11 @@ const ModalContainer = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(dataUserState),
+            body: JSON.stringify({
+                ...dataUserState,
+                delete: false,
+            }),
+
         })
             .then(response => response.json())
             .then(data => {

@@ -5,7 +5,7 @@ import { ModalDeleteUserContext } from '../../context/ModalDeleteUser'
 
 const ModalDeleteUser = () => {
 
-    const { showModalDeleteUser, setShowModalDeleteUser, deleteUser } = useContext(ModalDeleteUserContext)
+    const { showModalDeleteUser, setShowModalDeleteUser, deleteUser, userForDeleted } = useContext(ModalDeleteUserContext)
 
     return (
         showModalDeleteUser && <ModalContainerStyle>
@@ -16,7 +16,7 @@ const ModalDeleteUser = () => {
                         onClick={() => setShowModalDeleteUser(false)} />
                 </ButtonCloseModal>
 
-                <p>Tem certeza que você deseja deletar o usuário?</p>
+                <p>Tem certeza que você deseja deletar o usuário <b>{userForDeleted.name} </b>?</p>
 
                 <ButtonsContainer>
                     <ButtonCreate onClick={() => deleteUser(false)}>

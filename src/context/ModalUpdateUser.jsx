@@ -30,7 +30,7 @@ export const ModalUpdateUserProvider = ({ children }) => {
             .then(response => response.json())
             .then(data => {
                 toast.success(data.message, {
-                    duration: 3000,
+                    duration: 2000,
                 })
                 setTimeout(() => {
                     setShowModalUpdateUser(false)

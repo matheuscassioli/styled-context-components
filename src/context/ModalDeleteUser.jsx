@@ -1,12 +1,13 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import toast from 'react-hot-toast';
+import { DataContext } from "./DataProvider";
 
 export const ModalDeleteUserContext = createContext();
 
 export const ModalDeleteUserProvider = ({ children }) => {
 
+    const { setResfreshTable } = useContext(DataContext)
     const [showModalDeleteUser, setShowModalDeleteUser] = useState(false);
-
     const [userForDeleted, setUserForDeleted] = useState({})
 
     const deleteUser = (isTable = true, user) => {
@@ -19,8 +20,6 @@ export const ModalDeleteUserProvider = ({ children }) => {
     }
 
     const deleteApiUser = () => {
-        console.warn('chamada para deletar usuario', { id: userForDeleted.id })
-
         fetch('http://localhost/api/', {
             method: 'DELETE',
             headers: {
@@ -31,8 +30,12 @@ export const ModalDeleteUserProvider = ({ children }) => {
             .then(response => response.json())
             .then(data => {
                 toast.success(data.message, {
-                    duration: 3000,
+                    duration: 2000,
                 })
+                setTimeout(() => {
+                    setShowModalDeleteUser(false)
+                    setResfreshTable(Math.random())
+                }, 1000)
             })
     }
 

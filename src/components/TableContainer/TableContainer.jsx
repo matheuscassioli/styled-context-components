@@ -7,9 +7,10 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { FaUserEdit } from "react-icons/fa";
 import { ModalDeleteUserContext } from "../../context/ModalDeleteUser";
 import { ModalUpdateUserContext } from "../../context/ModalUpdateUser";
+import RenderEmptyList from "../RenderEmptyList/RenderEmptyList.jsx";
 
 const TableContainer = () => {
-    const { nameDirector, setNameDirector, dataUser, loading, resfreshTable } = useContext(DataContext);
+    const { nameDirector, setNameDirector, dataUser, loading } = useContext(DataContext);
     const { deleteUser } = useContext(ModalDeleteUserContext)
     const { updateUser } = useContext(ModalUpdateUserContext)
 
@@ -18,8 +19,8 @@ const TableContainer = () => {
     function changeRandomName() {
         const randomName = names[Math.floor(Math.random() * names.length)];
         setNameDirector(randomName);
-    } 
-    
+    }
+
     const returnHeaders = () => {
         return <tr>
             <th>Id</th>
@@ -71,24 +72,28 @@ const TableContainer = () => {
 
                 {loading && <LoadingSpinner />}
 
-                {!loading && <TableContainerStyle>
-                    <thead>
-                        {returnHeaders()}
-                    </thead>
-                    <tbody>
-                        {dataUser.map(line => {
-                            return <tr key={line.id}>
-                                <td>{line.id}</td>
-                                <td>{capitalizeFirstLetter(line.name)}</td>
-                                <td>{line.age}</td>
-                                <td>{capitalizeFirstLetter(line.state)}</td>
-                                <td>{renderInputCountryDisabled()}</td>
-                                <td>{renderTrashIcon(line)}</td>
-                                <td>{renderEditIcon(line)}</td>
-                            </tr>
-                        })}
-                    </tbody>
-                </TableContainerStyle>}
+                {!loading && dataUser.length == 0 && <RenderEmptyList />}
+
+                {!loading && dataUser.length != 0 &&
+                    <TableContainerStyle>
+                        <thead>
+                            {returnHeaders()}
+                        </thead>
+                        <tbody>
+                            {dataUser.map((line, index) => {
+                                return <tr key={index}>
+                                    <td>{line.id}</td>
+                                    <td>{capitalizeFirstLetter(line.name)}</td>
+                                    <td>{line.age}</td>
+                                    <td>{capitalizeFirstLetter(line.state)}</td>
+                                    <td>{renderInputCountryDisabled()}</td>
+                                    <td>{renderTrashIcon(line)}</td>
+                                    <td>{renderEditIcon(line)}</td>
+                                </tr>
+                            })}
+                        </tbody>
+                    </TableContainerStyle>}
+
             </HugTableContainer>
         </TableDivContainer>
     )

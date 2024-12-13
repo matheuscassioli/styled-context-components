@@ -36,7 +36,6 @@ export const DataContextProvider = ({ children }) => {
         "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins"
     ];
 
-
     return (
         <DataContext.Provider value={{ statesList, nameDirector, setResfreshTable, resfreshTable, setNameDirector, setShowModal, showModal, dataUser, setDateUser, loading, setLoading }}>
             {children}

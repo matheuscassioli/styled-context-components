@@ -2,16 +2,15 @@ import React, { useContext, useState } from 'react'
 import { DataContext } from '../../context/DataProvider';
 import { IoCloseSharp } from "react-icons/io5";
 import { ButtonCloseModal, ButtonCreate, ButtonsContainer, FormContainer, InputContainer, ModalContainerStyle, ModalContent } from './ModalContainerStyle';
+import toast from 'react-hot-toast';
 
 
 const ModalContainer = () => {
-    const { showModal, setShowModal, setDateUser, setLoading, statesList } = useContext(DataContext);
+    const { showModal, setShowModal, setDateUser, statesList } = useContext(DataContext);
     const [dataUserState, setDataUserState] = useState([{ name: '', age: '', state: '' }])
 
     const createUser = e => {
         e.preventDefault()
-        setLoading(true)
-        setShowModal(false)
 
         fetch('http://localhost/api/', {
             method: 'POST',
@@ -22,16 +21,16 @@ const ModalContainer = () => {
                 ...dataUserState,
                 delete: false,
             }),
-
         })
             .then(response => response.json())
             .then(data => {
-                setDateUser(prevState => [...prevState, data])
-            })
-            .finally(() => {
+                setDateUser(prevState => [...prevState, data.item])
+                toast.success(data.message, {
+                    duration: 2000,
+                })
                 setTimeout(() => {
-                    setLoading(false)
-                }, 2000)
+                    setShowModal(false)
+                }, (1000));
             })
     }
 

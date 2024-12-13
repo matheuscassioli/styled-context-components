@@ -1,13 +1,11 @@
 import React from 'react';
-import ReactLoading from 'react-loading';
+import { FourSquare } from "react-loading-indicators";
 
 const LoadingSpinner = () => {
     return (
-        <ReactLoading
-            type={'spokes'}
-            color={'white'}
-            height={'unset'}
-            width={'10%'}
+        <FourSquare
+            color="#737373"
+            size="large"
         />
     )
 }

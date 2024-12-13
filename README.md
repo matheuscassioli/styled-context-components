@@ -28,3 +28,33 @@ Senti a necessidade de reforçar esse conteúdo, pois nos desafios profissionais
 3. Configure o XAMPP para rodar a API localmente.
 4. Execute o frontend e a API para testar a comunicação entre ambos.
 
+## Evidências
+
+CREATE :heavy_plus_sign:
+
+![image](https://github.com/user-attachments/assets/67657fd9-5df1-45e8-b180-0fe4e68bdb2a)![image](https://github.com/user-attachments/assets/2a279a1d-ab36-48a7-a2f3-9fe86ffec3ee)
+ 
+---
+ 
+READ  :blue_book:
+
+![image](https://github.com/user-attachments/assets/eb6ddddc-35bc-41b9-bb58-21746acf7b08)
+ 
+--- 
+
+UPDATE :pencil2:
+
+![image](https://github.com/user-attachments/assets/d12c2e35-2e0c-4360-b7fb-6729942295a1)![image](https://github.com/user-attachments/assets/b8d36c59-d27a-40a8-9f38-39f1281325a9)
+
+--- 
+
+DELETE :x:
+
+![image](https://github.com/user-attachments/assets/66f4a00b-6575-4321-ae74-e6703d8c003e)![image](https://github.com/user-attachments/assets/a7f132d2-3f1f-460f-8f74-d5ac90e9ae83)
+
+
+
+
+
+
+

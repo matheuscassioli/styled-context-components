@@ -32,7 +32,7 @@ Senti a necessidade de reforçar esse conteúdo, pois nos desafios profissionais
 
 CREATE :heavy_plus_sign:
 
-![image](https://github.com/user-attachments/assets/67657fd9-5df1-45e8-b180-0fe4e68bdb2a)![image](https://github.com/user-attachments/assets/2a279a1d-ab36-48a7-a2f3-9fe86ffec3ee)
+![image](https://github.com/user-attachments/assets/67657fd9-5df1-45e8-b180-0fe4e68bdb2a) ![image](https://github.com/user-attachments/assets/eb3ef6a9-509e-41f9-8240-5a22f330ae38)
  
 ---
  
@@ -44,13 +44,15 @@ READ  :blue_book:
 
 UPDATE :pencil2:
 
-![image](https://github.com/user-attachments/assets/d12c2e35-2e0c-4360-b7fb-6729942295a1)![image](https://github.com/user-attachments/assets/b8d36c59-d27a-40a8-9f38-39f1281325a9)
+![image](https://github.com/user-attachments/assets/d12c2e35-2e0c-4360-b7fb-6729942295a1)![image](https://github.com/user-attachments/assets/a7748165-8f0c-41f5-8b35-946bd0d7d211)
+
 
 --- 
 
 DELETE :x:
 
-![image](https://github.com/user-attachments/assets/66f4a00b-6575-4321-ae74-e6703d8c003e)![image](https://github.com/user-attachments/assets/a7f132d2-3f1f-460f-8f74-d5ac90e9ae83)
+![image](https://github.com/user-attachments/assets/66f4a00b-6575-4321-ae74-e6703d8c003e)![image](https://github.com/user-attachments/assets/6723a0e0-ab33-418f-a308-032ab5ad1f1d)
+
 
 
 
